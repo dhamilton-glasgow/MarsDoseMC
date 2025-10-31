@@ -1,0 +1,27 @@
+##################################################################
+# Set physics models and interaction opitons
+##################################################################
+
+/MarsDoseMC/physics/addPhysics QGSP_BIC_HP
+/run/initialize
+
+##################################################################
+# Set output options
+##################################################################
+
+/MarsDoseMC/analysis/setOutputFile batch_test.txt
+
+##################################################################
+
+/gps/particle proton
+/gps/ang/type cos
+/gps/ang/mintheta 0.00 deg
+/gps/ang/maxtheta 90.00 deg
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0.0 m
+/gps/pos/radius 3.0 m
+/gps/energy 1000 MeV
+
+/run/beamOn 10000
+
