@@ -67,6 +67,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   Beamline->AddElement(N, 0.7); 
   Beamline->AddElement(O, 0.3); 
 
+  G4Element*  Al   = fNistManager->FindOrBuildElement(13); 
+  G4Element*  Li   = fNistManager->FindOrBuildElement(3); 
+
+  G4Material* AlLi = new G4Material("AlLi", 2.54*g/cm3, 2 );
+  Beamline->AddElement(Al, 0.9); 
+  Beamline->AddElement(Li, 0.1); 
+
   //---------------------------------------------------------------------------
   // Create Experimental Hall
   //---------------------------------------------------------------------------
@@ -94,7 +101,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 				  0.0 *m, 1.5 *m, 2.0 *m, 0.*deg, 360.*deg ); 
 
   G4LogicalVolume* craft_log = new G4LogicalVolume(craft_tube,
-						   fNistManager->FindOrBuildMaterial("G4_Al"),  
+						   //fNistManager->FindOrBuildMaterial("G4_Al"),  
+						   AlLi,
 						   "craft_log", 0, 0, 0);
   
   fCraftVol                  = new G4PVPlacement(scat_rm, G4ThreeVector(),
