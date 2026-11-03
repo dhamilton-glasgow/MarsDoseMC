@@ -71,8 +71,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Element*  Li   = fNistManager->FindOrBuildElement(3); 
 
   G4Material* AlLi = new G4Material("AlLi", 2.54*g/cm3, 2 );
-  Beamline->AddElement(Al, 0.9); 
-  Beamline->AddElement(Li, 0.1); 
+  AlLi->AddElement(Al, 0.9); 
+  AlLi->AddElement(Li, 0.1); 
 
   //---------------------------------------------------------------------------
   // Create Experimental Hall
