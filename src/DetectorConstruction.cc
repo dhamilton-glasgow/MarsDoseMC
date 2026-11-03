@@ -101,8 +101,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 				  0.0 *m, 1.5 *m, 2.0 *m, 0.*deg, 360.*deg ); 
 
   G4LogicalVolume* craft_log = new G4LogicalVolume(craft_tube,
-						   //fNistManager->FindOrBuildMaterial("G4_Al"),  
-						   AlLi,
+						   fNistManager->FindOrBuildMaterial("G4_Al"),  
+						   //AlLi,
 						   "craft_log", 0, 0, 0);
   
   fCraftVol                  = new G4PVPlacement(scat_rm, G4ThreeVector(),
